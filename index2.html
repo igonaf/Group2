@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Timer</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="vendor/flipclock/css/flipclock.min.css">
+	<style type="text/css">
+		body {
+				background: url('img/background.jpg') no-repeat #212540;
+				background-size: cover;
+				height: 100vh;
+				background-position: 70% top; 
+				overflow: hidden;
+		}
+		.header	 {
+			font-family: "Helvetica Neue", Helvetica, sans-serif;
+			text-align: center;
+			font-size: 3em;
+			color: #efb131;
+			margin-top: 40px;
+		}
+		.timer-wrap {
+			margin: 0 auto;
+			width: 640px;
+			margin-top: 45px;
+		}
+		.flip-clock-wrapper ul li a div div.inn {
+			color: #efb131;
+		}
+		.flip-clock-divider .flip-clock-label {
+			font-size: 13px;
+			color: #efb131;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="header">Lab ends in...</div>
+	<div class="timer-wrap">
+		<div class="lab-timer"></div>	
+	</div>		
+	<script src="vendor/jquery/js/jquery.min.js"></script>
+	<script src="vendor/flipclock/js/flipclock.min.js"></script>
+	<script type="text/javascript">
+		var diff = new Date(2016, 11, 18, 12, 30, 0).getTime() / 1000 - new Date().getTime() / 1000;
+		var clock = $('.lab-timer').FlipClock(diff, {
+			clockFace: 'DailyCounter',
+			countdown: true,
+		});
+		
+		$(".lab-timer").click(function(e) {
+			e.preventDefault();
+		});
+		
+	</script>
+</body>
+</html>
